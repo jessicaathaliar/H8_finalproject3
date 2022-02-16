@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensemble Model Prediction</title>
+</head>
+<body>
+
+    <div class="form">
+        <h1>PREDIKSI KESELAMATAN PASIEN DARI PENYAKIT JANTUNG KARDIOVASKULER</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <h3>Age (Umur Pasien)</h3>
+            <h5>- Fill in the age value (ex : 40)</h5>
+            <input type="text" name="age" placeholder="age" required="required" />
+            <br>
+            <h3>Ejection Fraction (persentase darah yang meninggalkan jantung dalam persentasi di setiap kontraksi jantung)</h3>
+            <h5>- Fill in the ejection fraction value (ex : 20)</h5>
+            <input type="text" name="ef" placeholder="ejection_fracture" required="required" />
+            <br>
+            <h3>Serum Creatinine (level serum creatinine di darah dalam mg/dL)</h3>
+            <h5>- Fill in the ejection fraction value between 1 - 10 (ex : 2)</h5>
+			<input type="text" name="sc" placeholder="serum_creatinine" required="required" />
+            <br>
+			<h3>Time (waktu dalam hari untuk follow-up)</h3>
+            <h5>- Fill in the time value (ex : 6)</h5>
+			<input type="text" name="time" placeholder="time" required="required" />
+            <br>
+			<br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <p class="message">{{ prediction_text }}</p>
+    </div>
+
+</body>
+</html>
